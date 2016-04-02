@@ -28,7 +28,7 @@ var fn = {
                 url: "http://carlos.igitsoft.com/apps/test.php",
                 data: { nom: nom, mail: mail, tel: tel },
                 error: function(jq,txt,err){
-                    alert(txt);
+                    alert(jq+txt+err);
                 }
             }).done(function( msg ) {
                 alert(msg);
