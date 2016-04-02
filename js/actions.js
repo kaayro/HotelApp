@@ -23,7 +23,8 @@ var fn = {
         var foto = $('#regFoto').data('foto');
         
         if(nom != '' && mail != '' && tel != '' && foto != undefined){
-            $.ajax({
+            fn.regSend(nom,tel,mail,foto);
+            /*$.ajax({
                 method: "POST",
                 url: "http://carlos.igitsoft.com/apps/test.php",
                 data: { nom: nom, mail: mail, tel: tel },
@@ -34,10 +35,25 @@ var fn = {
                 alert(msg);
                 if(msg == 1)
                     ft.transfer(foto);
-            });
+            });*/
         }else
             alert('Todos los campos son requeridos');
-    }
+    },
+    path: null,
+	regSend: function(nom, tel, mail, foto){
+		server.path = foto;
+		$.ajax({
+			method: "POST",
+			url: "http://carlos.igitsoft.com/apps/test.php",
+			data: { nom: nom, mail: mail, tel: tel }
+		}).done(server.regDone);
+	},
+	regDone: function(msg){
+		if(msg == 1){
+			fileTransfer.sendPhoto(server.path);
+		}else
+			navigator.notification.alert("Hubo un error al enviar los datos", null, "Error al enviar datos", "Aceptar");
+	}
 };
 
 $(fn.ready);
