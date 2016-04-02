@@ -23,10 +23,11 @@ var fn = {
         var foto = $('#regFoto').data('foto');
         
         if(nom != '' && mail != '' && tel != '' && foto != undefined){
+            alert(1);
             $.ajax({
                 method: "POST",
                 url: "http://carlos.igitsoft.com/apps/test.php",
-                data: { nom: nom, mail: mail, tel: tel }
+                data: { }//nom: nom, mail: mail, tel: tel }
             }).done(function( msg ) {
                 alert(msg);
                 if(msg == 1)
