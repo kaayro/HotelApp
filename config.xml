@@ -23,4 +23,5 @@
     <plugin name="cordova-plugin-media-capture" />
     <plugin name="cordova-plugin-file-transfer" />
     
+    <access origin="*" />
 </widget>
