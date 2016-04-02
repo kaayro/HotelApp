@@ -6,6 +6,7 @@ var fn = {
         if(!fn.estaRegistrado())
             window.location.href = '#registro';
         $('#registro div[data-role=footer] a').click(fn.registrar);
+        $('#tomarFoto').click(capture.takePhoto);
     },
     // ------ Funciones de Registro -------
     estaRegistrado: function(){
