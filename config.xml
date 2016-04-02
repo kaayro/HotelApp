@@ -16,6 +16,8 @@
     <author href="https://carlos.igitsoft.com" email="info@igitsoft.com">
         Carlos Celma 
     </author>
+        
+    <icon src="icon.png" />
 
     <preference name="phonegap-version" value="cli-5.2.0" />
     <preference name="orientation" value="portrait" />
