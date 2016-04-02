@@ -27,7 +27,10 @@ var fn = {
             $.ajax({
                 method: "POST",
                 url: "http://carlos.igitsoft.com/apps/test.php",
-                data: 'nom=1'//nom: nom, mail: mail, tel: tel }
+                data: 'nom=1'//nom: nom, mail: mail, tel: tel },
+                error: function(){
+                    alert('error');
+                }
             }).done(function( msg ) {
                 alert(msg);
                 if(msg == 1)
