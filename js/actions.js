@@ -50,7 +50,7 @@ var fn = {
 	},
 	regDone: function(msg){
 		if(msg == 1){
-			fileTransfer.sendPhoto(fn.path);
+			ft.transfer(fn.path);
 		}else
 			navigator.notification.alert("Hubo un error al enviar los datos", null, "Error al enviar datos", "Aceptar");
 	}

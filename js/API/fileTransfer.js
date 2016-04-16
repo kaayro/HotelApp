@@ -1,6 +1,7 @@
 //fileTransfer.js
 var ft = {
     win: function (r) {
+		alert(r.response);
         if(r.response == 1){
             window.localStorage.setItem("user",$('#regNom').val());
             window.location.href = '#home';
