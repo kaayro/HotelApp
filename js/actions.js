@@ -23,7 +23,9 @@ var fn = {
         var foto = $('#regFoto').data('foto');
         
         if(nom != '' && mail != '' && tel != '' && foto != undefined){
-			$.mobile.loading( "show" );
+			$.mobile.loading( "show", {
+				theme: 'b'
+			});
             //fn.regSend(nom,tel,mail,foto);
             $.ajax({
                 method: "POST",
