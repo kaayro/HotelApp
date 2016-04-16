@@ -3,10 +3,15 @@ var fn = {
         document.addEventListener("deviceready", fn.init, false);
     },
     init: function(){
+		//Funcionalidades para el registro
         if(!fn.estaRegistrado())
             window.location.href = '#registro';
-        $('#registro div[data-role=footer] a').click(fn.registrar);
-        $('#tomarFoto').click(capture.takePhoto);
+        $('#registro div[data-role=footer] a').tap(fn.registrar);
+        $('#tomarFoto').tap(capture.takePhoto);
+		//Funcionalidades para reservar
+		$('#nr1 div[data-role=navbar] a:eq(0)').tap(fn.siguientePaso);
+		$('#nr2 ul[data-role=listview] a').tap(fn.seleccionaHabitacion);
+		$('#nr2 div[data-role=navbar] a:eq(0)').tap(fn.obtenerReserva);
     },
     // ------ Funciones de Registro -------
     estaRegistrado: function(){
@@ -26,7 +31,6 @@ var fn = {
 			$.mobile.loading( "show", {
 				theme: 'b'
 			});
-            //fn.regSend(nom,tel,mail,foto);
             $.ajax({
                 method: "POST",
                 url: "http://carlos.igitsoft.com/apps/test.php",
@@ -42,7 +46,33 @@ var fn = {
             });
         }else
             alert('Todos los campos son requeridos');
-    }
+    },
+	//Funciones de Reserva
+	per: '',
+	dia: '',
+	th: '',
+	siguientePaso: function(){
+		fn.per = $('#nrPer').val();
+		fn.dia = $('#nrDia').val();
+		if(fn.per != '' && fn.dia != '')
+			window.location.href = "#nr2";
+		else
+			navigator.notification.alert("Todos los campos son requeridos", null, "Error al llenar", "Aceptar");
+	},
+	seleccionaHabitacion: function(){
+		$(this).parent().parent().find('a').css('background-color','transparent');
+		$(this).css('background-color','#00ff00');
+		fn.th = $(this).parent().index();
+	},
+	obtenerReserva: function(){
+		if(fn.th != ''){
+			if(navigator.connection.type != Connection.NONE)
+				//Enviar a servidor
+			else
+				//Guardar Localmente
+		}else
+			navigator.notification.alert("Debe seleccionar tipo de habitaciòn", null, "Error al llenar", "Aceptar");
+	}
 };
 
 $(fn.ready);

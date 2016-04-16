@@ -2,8 +2,9 @@
 var ft = {
     win: function (r) {
         if(r.response == 1){
-            window.localStorage.setItem("user",$('#regNom').val());
+            window.localStorage.setItem("user",device.uuid);
 			$.mobile.loading( "hide" );
+			navigator.vibrate(500);
             window.location.href = '#home';
         }
     },
