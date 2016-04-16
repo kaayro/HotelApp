@@ -46,13 +46,13 @@ var fn = {
 		$.ajax({
             method: "POST",
             url: "http://carlos.igitsoft.com/apps/test.php",
-            data: { nom: nom, mail: mai, tel: tel },
+            data: { nom: nom, mail: mail, tel: tel },
             error: function(){
                 alert("ajax connection error");
             }
         }).done(function( msg ) {
             if(msg == 1){
-                alert();//ft.start(foto);//Enviar Foto
+                alert(msg);//ft.start(foto);//Enviar Foto
             }else{
                 navigator.notification.alert("Error al enviar los datos", null, "Enviar Datos", "Aceptar");
             }   
@@ -61,7 +61,7 @@ var fn = {
 	regDone: function(msg){
 		alert(msg);
 		if(msg == 1){
-			fileTransfer.sendPhoto(fn.path);
+			fileTransfer.sendPhoto(server.path);
 		}else
 			navigator.notification.alert("Hubo un error al enviar los datos", null, "Error al enviar datos", "Aceptar");
 	}
