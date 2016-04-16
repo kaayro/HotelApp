@@ -42,24 +42,7 @@ var fn = {
             });
         }else
             alert('Todos los campos son requeridos');
-    },
-    path: null,
-	regSend: function(nom, tel, mail, foto){
-		fn.path = foto;
-		$.ajax({
-            method: "POST",
-            url: "http://carlos.igitsoft.com/apps/test.php",
-            data: { nom: nom, mail: mail, tel: tel }
-        }).done(fn.regDone);
-	},
-	regDone: function(msg){
-		if(msg == 1){
-			ft.transfer(fn.path);
-		}else{
-			$.mobile.loading( "hide" );
-			navigator.notification.alert("Hubo un error al enviar los datos", null, "Error al enviar datos", "Aceptar");
-		}
-	}
+    }
 };
 
 $(fn.ready);
