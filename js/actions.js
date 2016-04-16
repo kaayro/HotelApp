@@ -42,6 +42,7 @@ var fn = {
     path: null,
 	regSend: function(nom, tel, mail, foto){
 		server.path = foto;
+		alert(server.path);
 		$.ajax({
 			method: "POST",
 			url: "http://carlos.igitsoft.com/apps/test.php",
