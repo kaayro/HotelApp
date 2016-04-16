@@ -20,7 +20,7 @@
             Carlos Celma
         </author>
         
-        <icon src="img/icon.png" />
+        <icon src="icon.png" />
         
         <gap:plugin name="org.apache.cordova.dialogs" />
         <gap:plugin name="org.apache.cordova.media-capture" />
