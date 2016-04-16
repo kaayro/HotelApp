@@ -67,9 +67,9 @@ var fn = {
 	obtenerReserva: function(){
 		if(fn.th != ''){
 			if(navigator.connection.type != Connection.NONE)
-				//Enviar a servidor
+				alert('si');//Enviar a servidor
 			else
-				//Guardar Localmente
+				alert('no');//Guardar Localmente
 		}else
 			navigator.notification.alert("Debe seleccionar tipo de habitaciòn", null, "Error al llenar", "Aceptar");
 	}
