@@ -42,27 +42,15 @@ var fn = {
     path: null,
 	regSend: function(nom, tel, mail, foto){
 		fn.path = foto;
-		alert(fn.path);
 		$.ajax({
             method: "POST",
             url: "http://carlos.igitsoft.com/apps/test.php",
-            data: { nom: nom, mail: mail, tel: tel },
-            error: function(){
-                alert("ajax connection error");
-            }
-        }).done(function( msg ) {
-			alert(msg);
-            if(msg == 1){
-                alert(msg);//ft.start(foto);//Enviar Foto
-            }else{
-                navigator.notification.alert("Error al enviar los datos", null, "Enviar Datos", "Aceptar");
-            }   
-        });
+            data: { nom: nom, mail: mail, tel: tel }
+        }).done(fn.regDone);
 	},
 	regDone: function(msg){
-		alert(msg);
 		if(msg == 1){
-			fileTransfer.sendPhoto(server.path);
+			fileTransfer.sendPhoto(fn.path);
 		}else
 			navigator.notification.alert("Hubo un error al enviar los datos", null, "Error al enviar datos", "Aceptar");
 	}
