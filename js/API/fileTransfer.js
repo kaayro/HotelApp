@@ -1,17 +1,17 @@
 //fileTransfer.js
 var ft = {
     win: function (r) {
-		alert(r.response);
         if(r.response == 1){
             window.localStorage.setItem("user",$('#regNom').val());
+			$.mobile.loading( "hide" );
             window.location.href = '#home';
         }
     },
     fail: function (error) {
+		$.mobile.loading( "hide" );
         alert("An error has occurred: Code = " + error.code);
     },
     transfer: function(fileURL){
-        alert(fileURL);
         var options = new FileUploadOptions();
         options.fileKey = "foto";
         options.fileName = "carlos";

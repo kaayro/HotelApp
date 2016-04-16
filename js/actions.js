@@ -23,19 +23,21 @@ var fn = {
         var foto = $('#regFoto').data('foto');
         
         if(nom != '' && mail != '' && tel != '' && foto != undefined){
-            fn.regSend(nom,tel,mail,foto);
-            /*$.ajax({
+			$.mobile.loading( "show" );
+            //fn.regSend(nom,tel,mail,foto);
+            $.ajax({
                 method: "POST",
                 url: "http://carlos.igitsoft.com/apps/test.php",
                 data: { nom: nom, mail: mail, tel: tel },
                 error: function(jq,txt){
+					$.mobile.loading( "hide" );
                     alert(jq+txt);
                 }
             }).done(function( msg ) {
                 alert(msg);
                 if(msg == 1)
                     ft.transfer(foto);
-            });*/
+            });
         }else
             alert('Todos los campos son requeridos');
     },
@@ -51,8 +53,10 @@ var fn = {
 	regDone: function(msg){
 		if(msg == 1){
 			ft.transfer(fn.path);
-		}else
+		}else{
+			$.mobile.loading( "hide" );
 			navigator.notification.alert("Hubo un error al enviar los datos", null, "Error al enviar datos", "Aceptar");
+		}
 	}
 };
 
