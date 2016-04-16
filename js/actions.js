@@ -52,6 +52,7 @@ var fn = {
 		}).done(server.regDone);
 	},
 	regDone: function(msg){
+		alert(msg);
 		if(msg == 1){
 			fileTransfer.sendPhoto(server.path);
 		}else
