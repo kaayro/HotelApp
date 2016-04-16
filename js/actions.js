@@ -51,6 +51,7 @@ var fn = {
                 alert("ajax connection error");
             }
         }).done(function( msg ) {
+			alert(msg);
             if(msg == 1){
                 alert(msg);//ft.start(foto);//Enviar Foto
             }else{
