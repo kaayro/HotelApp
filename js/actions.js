@@ -69,7 +69,7 @@ var fn = {
 			if(navigator.connection.type != Connection.NONE)
 				alert('si');//Enviar a servidor
 			else
-				alert('no');//Guardar Localmente
+				almacen.guardarReserva(fn.per,fn.dia,fn.th);//Guardar Localmente
 		}else
 			navigator.notification.alert("Debe seleccionar tipo de habitaciòn", null, "Error al llenar", "Aceptar");
 	}
