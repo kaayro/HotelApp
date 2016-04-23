@@ -36,5 +36,25 @@ var almacen = {
 											  }, "Tabla Reservas","Vibrar,Sonar,Cancelar");
 			}
 		});
+	},
+	
+	
+	
+	
+	
+	gurdarHistorial: function(pr,di,th){
+		almacen.pr = pr;
+		almacen.di = di;
+		almacen.th = th;
+		
+		almacen.db = window.openDatabase("hotelApp","1.0","HotelApp Storage",20000);
+		almacen.db.transaction(almacen.hacerHistorial, almacen.error, almacen.historialGuardado);
+	},
+	hacerHistorial(tx){
+		tx.executeSql("CREATE TABLE IF NOT EXISTS historial (pr, di, th)");
+		tx.executeSql("INSERT INTO historial (pr,di,th) VALUES ('"+almacen.pr+"','"+almacen.di+"','"+almacen.th+"')");
+	},
+	historialGuardado: function(){
+		navigator.notification.alert("Guardado en Historial", null, "Felicidades", "Aceptar");
 	}
 }
