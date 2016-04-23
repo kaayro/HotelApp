@@ -45,7 +45,7 @@ var almacen = {
 		almacen.db = window.openDatabase("hotelApp","1.0","HotelApp Storage",20000);
 		almacen.db.transaction(almacen.hacerHistorial, almacen.error, almacen.historialGuardado);
 	},
-	hacerHistorial(tx){
+	hacerHistorial: function(tx){
 		tx.executeSql("CREATE TABLE IF NOT EXISTS historial (pr, di, th)");
 		tx.executeSql("INSERT INTO historial (pr,di,th) VALUES ('"+almacen.pr+"','"+almacen.di+"','"+almacen.th+"')");
 	},
