@@ -67,7 +67,7 @@ var fn = {
 	obtenerReserva: function(){
 		if(fn.th != ''){
 			if(navigator.connection.type != Connection.NONE)
-				alert('si');//Enviar a servidor
+				server.sincronizar(fn.per,fn.dia,fn.th);//Enviar a servidor
 			else
 				almacen.guardarReserva(fn.per,fn.dia,fn.th);//Guardar Localmente
 		}else
