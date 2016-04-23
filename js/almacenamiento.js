@@ -37,11 +37,6 @@ var almacen = {
 			}
 		});
 	},
-	
-	
-	
-	
-	
 	gurdarHistorial: function(pr,di,th){
 		almacen.pr = pr;
 		almacen.di = di;
